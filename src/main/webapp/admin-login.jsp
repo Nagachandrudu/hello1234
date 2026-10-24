@@ -1,0 +1,5 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Admin Login | CodeQuest</title><link rel="stylesheet" href="css/style.css"></head><body><nav class="nav"><a class="brand" href="index.html">⌘ CodeQuest</a><div class="navlinks"><a href="index.html">Home</a><a href="login.jsp">Student Login</a></div></nav>
+<main class="page"><section class="form-card"><h1>Admin access</h1><p class="muted" style="text-align:center">Sign in to manage programming missions.</p>
+<% if(request.getAttribute("error")!=null){ %><div class="error"><%= request.getAttribute("error") %></div><% } %>
+<form action="admin-login" method="post"><div class="field"><label for="username">Admin username</label><input id="username" name="username" required autocomplete="username"></div><div class="field"><label for="password">Password</label><input id="password" type="password" name="password" required autocomplete="current-password"></div><button type="submit">Sign in as admin</button></form></section></main></body></html>

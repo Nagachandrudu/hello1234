@@ -1,0 +1,6 @@
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %><%
+if(session.getAttribute("adminId")==null){response.sendRedirect(request.getContextPath()+"/admin-login.jsp");return;}
+java.util.List rows=(java.util.List)request.getAttribute("questions");
+%><!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><title>Question Bank | CodeQuest</title><link rel="stylesheet" href="../css/style.css"></head><body><nav class="nav"><a class="brand" href="../index.html">⌘ CodeQuest Admin</a><div class="navlinks"><a href="dashboard.jsp">Dashboard</a><a href="add-question.jsp">Add question</a><a href="../admin-logout">Logout</a></div></nav><main class="page"><h1>Question bank</h1><% if("1".equals(request.getParameter("added"))){ %><div class="success">Question saved successfully.</div><% } %><div class="table-wrap"><table><thead><tr><th>ID</th><th>Title</th><th>Category</th><th>Difficulty</th><th>XP reward</th></tr></thead><tbody>
+<% if(rows==null||rows.isEmpty()){ %><tr><td colspan="5">No questions yet. Add your first mission.</td></tr><% } else { for(Object item:rows){java.util.Map m=(java.util.Map)item;%><tr><td><%=m.get("id")%></td><td><%=m.get("title")%></td><td><%=m.get("category")%></td><td><%=m.get("difficulty")%></td><td><%=m.get("xp")%></td></tr><% }} %>
+</tbody></table></div></main></body></html>
